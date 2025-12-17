@@ -7,7 +7,7 @@ pipeline {
 
    stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Salmiselim/DevOps_Jenkins.git'
+                git branch: 'master', url: 'https://github.com/Salmiselim/DevOps_Jenkins.git'
             }
         }
         stage('Build') {
@@ -23,7 +23,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7/:9000 -Dsonar.login=admin -Dsonar.password=Selim123456789@'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7:9000 -Dsonar.login=admin -Dsonar.password=Selim123456789@'
             }
         }
      
