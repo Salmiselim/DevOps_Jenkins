@@ -1,10 +1,36 @@
 pipeline {
     agent any
+    tools {
+        maven 'M2_HOME'
+    }
     stages {
-        stage('Hello') {
+
+   stage('Checkout') {
             steps {
-                echo 'Hello world!'
+                git branch: 'main', url: 'https://github.com/Salmiselim/DevOps_Jenkins.git'
             }
+        }
+        stage('Build') {
+            steps {
+                sh 'mvn clean install -DskipTests'
+            }
+        }
+ stage('Maven Clean Compile') {
+            steps {
+                sh 'mvn clean compile'
+            }
+        }
+        
+        stage('SonarQube Analysis') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7/:9000 -Dsonar.login=admin -Dsonar.password=Selim123456789@'
+            }
+        }
+     
+    }
+    post {
+        success {
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
         }
     }
 }
