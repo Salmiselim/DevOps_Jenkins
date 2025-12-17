@@ -29,8 +29,8 @@ sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7:9000 -Dsonar.token=squ_
      
     }
     post {
-        success {
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+         success {
+            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, allowEmptyArchive: true
         }
     }
 }
