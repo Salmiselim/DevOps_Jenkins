@@ -9,7 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsCosnstructor
+
+@NoArgsConstructor
 @ToString
 public class Course {
     @Id
