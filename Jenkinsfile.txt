@@ -23,7 +23,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7:9000 -Dsonar.login=admin -Dsonar.password=Selim123456789@'
+sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.10.7:9000 -Dsonar.token=squ_27398fb9a6fd885ad0ddf5f1c43c1840387ea0f2'
             }
         }
      
